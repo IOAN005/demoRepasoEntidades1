@@ -23,16 +23,17 @@ public class SociosServicioImpl implements ISocioServicio{
 
     @Override
     public Socios insertar(Socios s1) {
-        return null;
+        return repo.save(s1);
     }
 
     @Override
     public Socios modificar(Socios s1) {
-        return null;
+        return repo.save(s1);
     }
 
     @Override
     public void eliminar(String dni) {
+        repo.deleteById(dni);
 
     }
 }

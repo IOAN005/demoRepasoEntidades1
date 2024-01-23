@@ -11,7 +11,7 @@ import java.time.LocalTime;
 
 @NoArgsConstructor
     @AllArgsConstructor
-    @Data
+
     @Entity
     @Table(name = "salidas")
     public class Salidas {
@@ -31,5 +31,27 @@ import java.time.LocalTime;
     @JoinColumn(name = "dni", nullable = false, foreignKey = @ForeignKey(name = "FK_salidas_patrones"))
     private Patron patron;
 
-
+    @Override
+    public String toString() {
+        return "Salidas{" +
+                "idSalida=" + idSalida +
+                ", fechaSalida=" + fechaSalida +
+                ", horaSalida=" + horaSalida +
+                ", destino='" + destino + '\'' +
+                ", barco=" + barco +
+                '}';
     }
+
+    public void setPatron(Patron patron) {
+        this.patron = patron;
+    }
+
+    public Salidas(int idSalida, LocalDate fechaSalida, LocalTime horaSalida, Barcos barco) {
+        this.idSalida = idSalida;
+        this.fechaSalida = fechaSalida;
+        this.horaSalida = horaSalida;
+        this.barco = barco;
+    }
+}
+
+
